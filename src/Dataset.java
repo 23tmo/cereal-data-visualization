@@ -4,6 +4,7 @@ import processing.data.TableRow;
 public class Dataset implements Searchable, Sortable {
     private final Record[] records;
     // test comment
+    //test comment
     public Dataset() {
         DataVisualizationApp app = DataVisualizationApp.getApp();
         Table table = app.loadTable("data/tabularData.csv", "header");
