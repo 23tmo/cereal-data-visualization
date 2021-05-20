@@ -3,19 +3,19 @@ import processing.data.TableRow;
 
 public class Dataset implements Searchable, Sortable {
     private final Record[] records;
-    // test comment
-    //test comment
+
     public Dataset() {
         DataVisualizationApp app = DataVisualizationApp.getApp();
-        Table table = app.loadTable("data/tabularData.csv", "header");
+        Table table = app.loadTable("data/CerealsDataset.csv", "header");
         records = new Record[table.getRowCount()];
         for (int i = 0; i < records.length; i++) {
             TableRow row = table.getRow(i);
-            String country = row.getString("Country");
-            int infections = row.getInt("Total number of infections");
-            int newCases = row.getInt("Average daily number of new cases in last 7 days");
-            int deaths = row.getInt("Total number of deaths");
-            records[i] = new Record(country, infections, newCases, deaths);
+            String name = row.getString("Name");
+            String manuf = row.getString("Manuf");
+            String type = row.getString("Type");
+            int sugars = row.getInt("Sugars");
+            double rating = row.getDouble("Rating");
+            records[i] = new Record(name, manuf, type, sugars, rating);
         }
     }
 
@@ -29,7 +29,7 @@ public class Dataset implements Searchable, Sortable {
     }
 
     @Override
-    public int find(String country) {
-        return SearchingMethods.search(records, country);
+    public int find(double rating) {
+        return SearchingMethods.search(records, rating);
     }
 }

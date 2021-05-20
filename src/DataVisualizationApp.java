@@ -15,7 +15,7 @@ public class DataVisualizationApp extends PApplet {
     }
 
     public void settings(){
-        size(1000, 600);
+        size(1440, 871);
     }
 
     public void setup(){
@@ -30,7 +30,7 @@ public class DataVisualizationApp extends PApplet {
 
     public void keyPressed(){
         if (key == 'e'){
-            foundAt = dataset.find("india");
+            foundAt = dataset.find(0.0);
         } else if (key == 'o'){
             dataset.sort();
         }
@@ -42,10 +42,11 @@ public class DataVisualizationApp extends PApplet {
 
     private void displayRecords(){
         Record[] records = dataset.getRecords();
-        text("COUNTRY", 200, 25);
-        text("TOTAL INFECTIONS", 400, 25);
-        text("DAILY NEW", 600, 25);
-        text("TOTAL DEATHS", 800, 25);
+        text("NAME", 100, 25);
+        text("MANUFACTURER", 300, 25);
+        text("TYPE", 500, 25);
+        text("SUGARS", 700, 25);
+        text("RATING", 900, 25);
         int y = 75;
         for (int i = 0; i < records.length; i++){
             Record record = records[i];
@@ -53,13 +54,13 @@ public class DataVisualizationApp extends PApplet {
             if (foundAt == i){
                 fill(255, 0, 0);
             }
-            text(record.getCountry(), 200, y);
-
+            text(record.getName(), 100, y);
             fill(0);
-            text(record.getDeaths(), 400, y);
-            text(record.getInfections(), 600, y);
-            text(record.getNewCases(), 800, y);
-            y += 50;
+            text(record.getManuf(), 300, y);
+            text(record.getType(), 500, y);
+            text(record.getSugars(), 700, y);
+            text(Double.toString(record.getRating()), 900, y);
+            y += 25;
         }
     }
 }
