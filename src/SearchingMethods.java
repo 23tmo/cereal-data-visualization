@@ -4,17 +4,10 @@ public class SearchingMethods {
     }
 
     public static int search(Record[] records, double rating) {
-        //return SearchingMethods.linearSearch(records, rating);
-        return SearchingMethods.binarySearch(records, rating);
+        return SearchingMethods.linearSearch(records, rating);
+        //return SearchingMethods.binarySearch(records, rating);
     }
 
-    /**
-     * looping through records array to find the cereal rating that is closest to the inputted rating
-     *
-     * @param records array of records (cereals)
-     * @param rating  rating of the cereal
-     * @return the index of records that has the rating closest to the input rating
-     */
     private static int linearSearch(Record[] records, double rating) {
         double smallestDif = Math.abs(rating - records[0].getRating()); // random index of records
         int closest = -1;
@@ -29,15 +22,9 @@ public class SearchingMethods {
         return closest;
     }
 
-    /**
-     * searching for the cereal that has the rating closest to the inputted rating
-     *
-     * @param records array of records (cereals)
-     * @param rating  rating of the cereal
-     * @return index of records with cereal closest to the rating inputted,
-     */
+    //binary search was referenced from GeeksForGeeks
     private static int binarySearch(Record[] records, double rating) {
-        for (int x = 0; x < 20; x++) { // some reason it doesn't work just one time around, so 5 was experimentally found
+        for (int x = 0; x < 20; x++) { // some reason it doesn't work just one time around, so 20 was experimentally found
             for (int i = 0; i < records.length - 1; i++) {
                 int minIndex = i;
                 for (int next = i + 1; next < records.length; next++) { // finding the index with the minimum amt of sugars
@@ -67,8 +54,7 @@ public class SearchingMethods {
                 return mid;
             }
 
-    /* If target is less than array element,
-       then search in left */
+    // If target is less than array element, then search in left
             if (rating < records[mid].getRating()) {
 
                 // If target is greater than previous
@@ -80,7 +66,7 @@ public class SearchingMethods {
                     else {
                         return mid;
                     }
-                /* Repeat for left half */
+                // Repeat for left half
                 j = mid;
             }
             // If target is greater than mid
@@ -100,9 +86,11 @@ public class SearchingMethods {
     }
 
     public static double getClosest(double val1, double val2, double target) {
-        if (target - val1 >= val2 - target)
+        if(target - val1 >= val2 - target) {
             return val2;
-        else
+        }
+        else {
             return val1;
+        }
     }
 }

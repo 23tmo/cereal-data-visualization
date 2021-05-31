@@ -4,9 +4,9 @@ public class SortingMethods {
     }
 
     public static void sort(Record[] records){
-        //SortingMethods.selectionSort(records);
+        SortingMethods.selectionSort(records);
         //SortingMethods.insertionSort(records);
-        SortingMethods.mergeSort(records);
+        //SortingMethods.mergeSort(records);
     }
 
     private static void selectionSort(Record[] records) {
@@ -41,10 +41,10 @@ public class SortingMethods {
         }
     }
 
+    // referenced from codeHS gitbooks
     private static void mergeSort(Record[] records) {
-        if(records.length > 1)
-        {
-            int firstHalf = records.length/2;
+        if (records.length > 1) {
+            int firstHalf = records.length / 2;
             int secondHalf = records.length - firstHalf;
             Record[] listOne = new Record[firstHalf];
             Record[] listTwo = new Record[secondHalf];
@@ -83,6 +83,5 @@ public class SortingMethods {
         System.arraycopy(listOne, indexOne, finalList, resultPos, listOne.length - indexOne);
         System.arraycopy(listTwo, indexTwo, finalList, resultPos, listTwo.length - indexTwo);
     }
-
 }
 
