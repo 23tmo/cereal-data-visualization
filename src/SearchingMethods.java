@@ -22,9 +22,9 @@ public class SearchingMethods {
         return closest;
     }
 
-    //binary search was referenced from GeeksForGeeks
+    //binary search
     private static int binarySearch(Record[] records, double rating) {
-        for (int x = 0; x < 20; x++) { // some reason it doesn't work just one time around, so 20 was experimentally found
+        for (int x = 0; x < 20; x++) {
             for (int i = 0; i < records.length - 1; i++) {
                 int minIndex = i;
                 for (int next = i + 1; next < records.length; next++) { // finding the index with the minimum amt of sugars
@@ -45,7 +45,7 @@ public class SearchingMethods {
         if (rating >= records[n - 1].getRating())
             return n - 1;
 
-        // Doing binary search
+        // binary search
         int i = 0, j = n, mid = 0;
         while (i < j) {
             mid = (i + j) / 2;

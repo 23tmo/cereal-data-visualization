@@ -1,0 +1,61 @@
+# Java build output
+*.class
+out/
+build/
+target/
+bin/
+
+# Logs and JVM crash dumps
+*.log
+hs_err_pid*
+replay_pid*
+
+# IDE and editor metadata
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+
+# Local environment files and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+*.local
+*.secret
+*.secrets
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Packaged artifacts
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar

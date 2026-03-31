@@ -1,12 +1,12 @@
-import processing.core.PImage;
+import java.awt.image.BufferedImage;
 
 public class Record {
-    private PImage img;
-    private String name;
-    private String manuf;
-    private String type;
-    private int sugars;
-    private double rating;
+    private final BufferedImage img;
+    private final String name;
+    private final String manuf;
+    private final String type;
+    private final int sugars;
+    private final double rating;
 
     /**
      * A record is a cereal has the following traits:
@@ -17,7 +17,7 @@ public class Record {
      * @param sugars amount of sugars in grams per serving (12g)
      * @param rating rating from the dataset out of 100 for healthiness (28.025765)
      */
-    public Record(PImage img, String name, String manuf, String type, int sugars, double rating){
+    public Record(BufferedImage img, String name, String manuf, String type, int sugars, double rating) {
         this.img = img;
         this.name = name;
         this.manuf = manuf;
@@ -26,19 +26,27 @@ public class Record {
         this.rating = rating;
     }
 
-    public PImage getImage(){
+    public BufferedImage getImage() {
         return img;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public String getManuf() { return manuf; }
+    public String getManuf() {
+        return manuf;
+    }
 
-    public String getType() { return type; }
+    public String getType() {
+        return type;
+    }
 
-    public int getSugars() { return sugars; }
+    public int getSugars() {
+        return sugars;
+    }
 
-    public double getRating() { return rating; }
+    public double getRating() {
+        return rating;
+    }
 }

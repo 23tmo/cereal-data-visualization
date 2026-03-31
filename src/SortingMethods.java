@@ -3,45 +3,40 @@ public class SortingMethods {
     public SortingMethods() {
     }
 
-    public static void sort(Record[] records){
+    public static void sort(Record[] records) {
         SortingMethods.selectionSort(records);
         //SortingMethods.insertionSort(records);
         //SortingMethods.mergeSort(records);
     }
 
     private static void selectionSort(Record[] records) {
-        for (int x = 0; x < 5; x++) { // some reason it doesn't work just one time around, so 5 was experimentally found
-            for (int i = 0; i < records.length - 1; i++) {
-                int minIndex = i;
-                for (int next = i + 1; next < records.length; next++) { // finding the index with the minimum amt of sugars
-                    if (records[next].getSugars() < records[i].getSugars()) {
-                        minIndex = next;
-                    }
+        for (int i = 0; i < records.length - 1; i++) {
+            int minIndex = i;
+            for (int next = i + 1; next < records.length; next++) {
+                if (records[next].getSugars() < records[minIndex].getSugars()) {
+                    minIndex = next;
                 }
-                Record temp = records[minIndex]; // the current cereal
-                records[minIndex] = records[i]; // making min cereal equal to the current cereal
-                records[i] = temp; // making the current cereal equal to the min cereal
             }
+
+            Record temp = records[minIndex];
+            records[minIndex] = records[i];
+            records[i] = temp;
         }
     }
 
     private static void insertionSort(Record[] records) {
-        for(int i = 1; i < records.length; i++)
-        {
+        for (int i = 1; i < records.length; i++) {
             Record currNum = records[i];
 
-            // Shift element into designated position
-            int currIndex = i-1;
-            while(currIndex > -1 && records[currIndex].getSugars() > currNum.getSugars())
-            {
-                records[currIndex+1] = records[currIndex];
+            int currIndex = i - 1;
+            while (currIndex > -1 && records[currIndex].getSugars() > currNum.getSugars()) {
+                records[currIndex + 1] = records[currIndex];
                 currIndex--;
             }
-            records[currIndex+1] = currNum;
+            records[currIndex + 1] = currNum;
         }
     }
-
-    // referenced from codeHS gitbooks
+    
     private static void mergeSort(Record[] records) {
         if (records.length > 1) {
             int firstHalf = records.length / 2;
@@ -59,29 +54,23 @@ public class SortingMethods {
         }
     }
 
-    private static void merge(Record[] listOne, Record[] listTwo, Record[]finalList)
-    {
+    private static void merge(Record[] listOne, Record[] listTwo, Record[] finalList) {
         int indexOne = 0;
         int indexTwo = 0;
-
         int resultPos = 0;
 
-        while(indexOne < listOne.length && indexTwo < listTwo.length)
-        {
-            if(listOne[indexOne].getSugars() < listTwo[indexTwo].getSugars())
-            {
+        while (indexOne < listOne.length && indexTwo < listTwo.length) {
+            if (listOne[indexOne].getSugars() < listTwo[indexTwo].getSugars()) {
                 finalList[resultPos] = listOne[indexOne];
                 indexOne++;
-            }
-            else
-            {
+            } else {
                 finalList[resultPos] = listTwo[indexTwo];
                 indexTwo++;
             }
             resultPos++;
         }
+
         System.arraycopy(listOne, indexOne, finalList, resultPos, listOne.length - indexOne);
         System.arraycopy(listTwo, indexTwo, finalList, resultPos, listTwo.length - indexTwo);
     }
 }
-
